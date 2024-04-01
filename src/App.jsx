@@ -8,7 +8,7 @@ function App() {
 
   return (
     <>
-      хуй
+      хуй2
     </>
   )
 }
