@@ -1,0 +1,16 @@
+.task {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #192027;
+  padding: 20px;
+  border-radius: 10px;
+}
+.buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.empty {background-color: green;}
+
+.delete {background-color: red;}
