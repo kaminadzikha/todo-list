@@ -1,6 +1,6 @@
 import styles from './Task.module.scss'
 
-const Task = () => {
+export const Task = () => {
     return (
         <div className={styles.task}>
             <div className={styles.textTask}>Текст задачи</div>
@@ -11,5 +11,3 @@ const Task = () => {
         </div>
     )
 }
-
-export default Task

@@ -1,16 +1,16 @@
-import Header from './components/Header/Header.jsx'
-import TaskInputForm from './components/TaskInputForm/TaskInputForm.jsx'
-import TasksList from './components/TasksList/TasksList.jsx'
+import {Header} from './components/Header'
+import {TaskInputForm} from './components/TaskInputForm'
+import {TasksList} from './components/TasksList'
 import './App.css'
 
 function App() {
-  return (
-    <div className="app">
-        <Header/>
-        <TaskInputForm/>
-        <TasksList/>
-    </div>
-  )
+    return (
+        <div className="app">
+            <Header/>
+            <TaskInputForm/>
+            <TasksList/>
+        </div>
+    )
 }
 
 export default App
