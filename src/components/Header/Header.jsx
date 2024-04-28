@@ -1,5 +1,5 @@
-import styles from './Header.module.scss';
+import styles from './Header.module.scss'
 
-export const Header = () =>  (
-    <div className={styles.header}>Мои задачи</div>
+export const Header = () => (
+  <div className={styles.header}>Мои задачи</div>
 )

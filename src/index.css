@@ -1,29 +1,29 @@
 :root {
-    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-    line-height: 1.5;
-    font-weight: 400;
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
 
-    color-scheme: light dark;
-    color: #ffffff;
-    background-color: #0e1217;
+  color-scheme: light dark;
+  color: #ffffff;
+  background-color: #0e1217;
 
-    font-synthesis: none;
-    text-rendering: optimizeLegibility;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 button {
-    background-color: #326aee;
-    border: none;
-    border-radius: 10px;
-    padding: 10px 20px;
+  background-color: #326aee;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 20px;
 }
 
 @media (prefers-color-scheme: light) {
-    :root {
-        color: #0e1217;
-        background-color: #ffffff;
-    }
+  :root {
+    color: #0e1217;
+    background-color: #ffffff;
+  }
 
 }

@@ -1,1 +1,1 @@
-export { TaskInputForm } from './TaskInputForm';
+export { TaskInputForm } from './TaskInputForm'
