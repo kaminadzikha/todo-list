@@ -2,12 +2,16 @@ import styles from './TaskInputForm.module.scss'
 import { useState } from 'react'
 
 export const TaskInputForm = ({ create }) => {
-  const [task, setTask] = useState({ value: '' })
+  const [value, setValue] = useState('')
 
   const addNewTask = (e) => {
     e.preventDefault()
-    create({ ...task, id: Date.now(), complete: false })
-    setTask({ value: '' })
+    create({ value, id: Date.now(), complete: false })
+    setValue('')
+  }
+
+  const handleChangeTaskText = (e) => {
+    setValue(e.target.value)
   }
 
   return (
@@ -16,14 +20,14 @@ export const TaskInputForm = ({ create }) => {
         type="text"
         className={styles.input}
         placeholder="Введите задачу"
-        value={task.value}
-        onChange={e => setTask({ value: e.target.value })}
+        value={value}
+        onChange={handleChangeTaskText}
       />
       <button
         type="submit"
         className={styles.button}
         onClick={addNewTask}
-        disabled={!task.value}>
+        disabled={!value}>
         Добавить
       </button>
     </form>

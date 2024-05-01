@@ -2,23 +2,31 @@ import styles from './Task.module.scss'
 
 export const Task = (props) => {
   const completedStyledText = props.task.complete
-    ? { textDecoration: 'line-through', color: 'gray' }
-    : {}
+    ? styles.completedTaskText
+    : ''
+
+  const doneTask = () => {
+    props.done(props.task)
+  }
+
+  const removeTask = () => {
+    props.remove(props.task)
+  }
 
   return (
     <div className={styles.task}>
-      <div style={completedStyledText}>
+      <div className={completedStyledText}>
         {props.task.value}
       </div>
       <div className={styles.buttons}>
         <button
           className={styles.empty}
-          onClick={() => props.done(props.task)}>
+          onClick={doneTask}>
           Выполнено
         </button>
         <button
           className={styles.delete}
-          onClick={() => props.remove(props.task)}>
+          onClick={removeTask}>
           Удалить
         </button>
       </div>

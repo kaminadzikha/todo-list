@@ -25,7 +25,7 @@ function App () {
     <div className="app">
       <Header/>
       <TaskInputForm create={createTask}/>
-      {tasks.length !== 0
+      {!!tasks.length
         ? <TasksList tasks={tasks} remove={removeTask} done={doneTask}/>
         : <EmptyListMessage/>
       }
