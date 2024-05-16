@@ -1,17 +1,21 @@
 import styles from './TaskInputForm.module.scss'
 import { useState } from 'react'
+import { useDispatch } from 'react-redux'
+import { addTask } from '../../store/todoSlice'
 
-export const TaskInputForm = ({ create }) => {
-  const [value, setValue] = useState('')
+export const TaskInputForm = () => {
+  const [text, setText] = useState('')
 
-  const addNewTask = (e) => {
+  const dispatch = useDispatch()
+
+  const addTodo = (e) => {
     e.preventDefault()
-    create({ value, id: Date.now(), complete: false })
-    setValue('')
+    dispatch(addTask(text))
+    setText('')
   }
 
   const handleChangeTaskText = (e) => {
-    setValue(e.target.value)
+    setText(e.target.value)
   }
 
   return (
@@ -20,14 +24,14 @@ export const TaskInputForm = ({ create }) => {
         type="text"
         className={styles.input}
         placeholder="Введите задачу"
-        value={value}
+        value={text}
         onChange={handleChangeTaskText}
       />
       <button
         type="submit"
         className={styles.button}
-        onClick={addNewTask}
-        disabled={!value}>
+        onClick={addTodo}
+        disabled={!text}>
         Добавить
       </button>
     </form>
