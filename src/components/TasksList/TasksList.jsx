@@ -4,6 +4,7 @@ import styles from './TasksList.module.scss'
 
 export const TasksList = () => {
   const tasks = useSelector(state => state.tasks.tasks)
+
   return (
     <div className={styles.tasksList}>
       {tasks.map((task) =>

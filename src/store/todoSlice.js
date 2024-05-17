@@ -7,18 +7,13 @@ const todoSlice = createSlice({
   },
   reducers: {
     addTask: (state, action) => {
-      state.tasks.push({
-        text: action.payload,
-        id: Date.now(),
-        complete: false,
-      })
+      state.tasks.push(action.payload)
     },
     removeTask: (state, action) => {
-      state.tasks = state.tasks.filter(task => task.id !== action.payload.id)
+      state.tasks = action.payload
     },
     doneTask: (state, action) => {
-      const doneTodo = state.tasks.find(task => task.id === action.payload.id)
-      doneTodo.complete = !doneTodo.complete;
+      state.tasks = action.payload
     },
   },
 })
