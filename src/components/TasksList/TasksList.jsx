@@ -1,11 +1,14 @@
+import { useSelector } from 'react-redux'
 import { Task } from '../Task'
 import styles from './TasksList.module.scss'
 
-export const TasksList = ({ remove, done, tasks }) => {
+export const TasksList = () => {
+  const tasks = useSelector(state => state.tasks.tasks)
+
   return (
     <div className={styles.tasksList}>
       {tasks.map((task) =>
-        <Task remove={remove} done={done} task={task} key={task.id}/>
+        <Task task={task} key={task.id}/>,
       )}
     </div>
   )

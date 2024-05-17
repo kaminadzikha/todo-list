@@ -1,32 +1,40 @@
+import { useDispatch, useSelector } from 'react-redux'
+import { doneTask, removeTask } from '../../store/todoSlice.js'
 import styles from './Task.module.scss'
 
-export const Task = (props) => {
-  const completedStyledText = props.task.complete
+export const Task = ({task}) => {
+  const dispatch = useDispatch()
+  const tasks = useSelector(state => state.tasks.tasks)
+
+  const completedStyledText = task.complete
     ? styles.completedTaskText
     : ''
 
-  const doneTask = () => {
-    props.done(props.task)
+  const handleDoneTodo = () => {
+    const filteredTasks =  tasks.map(
+      t => t.id !== task.id ? t : { ...task, complete: !task.complete })
+    dispatch(doneTask(filteredTasks))
   }
 
-  const removeTask = () => {
-    props.remove(props.task)
+  const handleRemoveTodo = () => {
+    const filteredTasks = tasks.filter((t) => t.id !== task.id)
+    dispatch(removeTask(filteredTasks))
   }
 
   return (
     <div className={styles.task}>
       <div className={completedStyledText}>
-        {props.task.value}
+        {task.text}
       </div>
       <div className={styles.buttons}>
         <button
           className={styles.empty}
-          onClick={doneTask}>
+          onClick={handleDoneTodo}>
           Выполнено
         </button>
         <button
           className={styles.delete}
-          onClick={removeTask}>
+          onClick={handleRemoveTodo}>
           Удалить
         </button>
       </div>
