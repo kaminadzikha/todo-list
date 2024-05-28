@@ -1,23 +1,23 @@
-import React from 'react'
-import { useSelector } from 'react-redux'
+import { useState } from 'react'
 import { Header } from './components/Header'
 import { TaskInputForm } from './components/TaskInputForm'
 import { TasksList } from './components/TasksList'
-import { EmptyListMessage } from './components/EmptyListMessage'
+import { TaskFilters } from './components/TaskFilters'
+import { ModalWindow } from './components/ModalWindow'
 import './App.css'
 
 function App () {
-
-  const tasks = useSelector(state => state.tasks.tasks)
+  const [modal, setModal] = useState(false)
 
   return (
     <div className="app">
+      <ModalWindow visible={modal} setVisible={setModal}>
+        <TaskInputForm setVisible={setModal} />
+      </ModalWindow>
       <Header/>
-      <TaskInputForm/>
-      {!!tasks.length
-        ? <TasksList/>
-        : <EmptyListMessage/>
-      }
+      <button onClick={() => setModal(true)}>Новая задача</button>
+      <TaskFilters/>
+      <TasksList/>
     </div>
   )
 }

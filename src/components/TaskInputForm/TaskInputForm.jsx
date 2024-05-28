@@ -1,9 +1,8 @@
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { addTask } from '../../store/todoSlice'
-import styles from './TaskInputForm.module.scss'
 
-export const TaskInputForm = () => {
+export const TaskInputForm = ({ setVisible }) => {
   const [taskText, setTaskText] = useState('')
 
   const dispatch = useDispatch()
@@ -13,10 +12,11 @@ export const TaskInputForm = () => {
     const newTask = {
       text: taskText,
       id: Date.now(),
-      complete: false
+      complete: false,
     }
     dispatch(addTask(newTask))
     setTaskText('')
+    setVisible(false)
   }
 
   const handleChangeTaskText = (e) => {
@@ -24,7 +24,7 @@ export const TaskInputForm = () => {
   }
 
   return (
-    <form className={styles.form}>
+    <form className="form">
       <input
         type="text"
         placeholder="Введите задачу"
