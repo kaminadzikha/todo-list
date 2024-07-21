@@ -8,15 +8,14 @@ export const Sort = () => {
   const dispatch = useDispatch()
   const tasks = useSelector(state => state.tasks.tasks)
 
-  const handleSortTasks = (e) => {
+  const handleSortTasks = () => {
     setIsToggled(!isToggled)
-
     if (isToggled) {
       dispatch(sortTasks(
-        [...tasks].sort((a, b) => a.text.localeCompare(b.text))))
+        [...tasks].sort((a, b) => a.title.localeCompare(b.title))))
     } else {
       dispatch(sortTasks(
-        [...tasks].sort((a, b) => b.text.localeCompare(a.text))))
+        [...tasks].sort((a, b) => b.title.localeCompare(a.title))))
     }
   }
 

@@ -5,23 +5,21 @@ import { EmptyListMessage } from '../EmptyListMessage/index.js'
 import styles from './TasksList.module.scss'
 
 export const TasksList = () => {
-  const tasksList = useSelector(state => state.tasks.tasks)
-  const foundTasks = useSelector(state => state.tasks.foundTasks)
+  const {tasks, foundTasks, status, error} = useSelector(state => state.tasks)
 
-  const tasks = useMemo(() => {
+  const tasksList = useMemo(() => {
     if (foundTasks.length) {
       return foundTasks
     }
-    return tasksList
-  }, [tasksList, foundTasks])
-
-  if (!tasks.length) {
-    return <EmptyListMessage/>
-  }
+    return tasks
+  }, [tasks, foundTasks])
 
   return (
     <div className={styles.tasksList}>
-      {tasks.map((task) =>
+      {!tasksList&&<EmptyListMessage/>}
+      {status==='loading'&&<div>Загрузка...</div>}
+      {error&&<div>{error}</div>}
+      {tasksList.map((task) =>
         <Task task={task} key={task.id}/>,
       )}
     </div>

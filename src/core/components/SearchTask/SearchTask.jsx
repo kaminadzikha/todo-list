@@ -10,7 +10,7 @@ export const SearchTask = () => {
 
   const foundTasks = useMemo(() => {
     return tasks.filter(
-      task => task.text.toLowerCase().includes(searchText.toLowerCase()))
+      task => task.title.toLowerCase().includes(searchText.toLowerCase()))
   }, [searchText, tasks])
 
   if (foundTasks) {

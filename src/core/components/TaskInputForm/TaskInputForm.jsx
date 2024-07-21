@@ -10,9 +10,9 @@ export const TaskInputForm = ({ setVisible }) => {
   const handleAddTodo = (e) => {
     e.preventDefault()
     const newTask = {
-      text: taskText,
+      title: taskText,
       id: Date.now(),
-      complete: false,
+      completed: false,
     }
     dispatch(addTask(newTask))
     setTaskText('')
